@@ -48,10 +48,34 @@ public class AdminDao {
 
                 users.add(admin);
             }
-            con.close();
+//            con.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return users;
+    }
+
+    public static boolean addUser(Admin admin){
+        boolean status=false;
+        try {
+            Connection con = ConnectDB.connect();
+            String sql = "INSERT INTO admins VALUES(null,?,?,?,?,?,?,?,?,?,null,null)";
+            PreparedStatement ps=con.prepareStatement(sql);
+            ps.setString(1,admin.getFirstname());
+            ps.setString(2,admin.getLastname());
+            ps.setString(3,admin.getGender());
+            ps.setString(4,admin.getUsername());
+            ps.setString(5,admin.getEmail());
+            ps.setString(6,admin.getContact());
+            ps.setString(7,admin.getPassword());
+            ps.setString(8,admin.getAddress());
+            ps.setInt(9,admin.getActive());
+            if(ps.executeUpdate()==1){
+                status=true;
+            }
+        }catch (SQLException e){
+            System.err.println(e);
+        }
+        return status;
     }
 }

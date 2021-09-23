@@ -11,7 +11,8 @@ public class CreateAdminTable {
     public static void createTable() {
         try {
             Connection con = ConnectDB.connect();
-            String sql = "CREATE TABLE admins (id int PRIMARY KEY AUTO_INCREMENT,fname varchar(20),lname varchar(20),username varchar(20) unique not null,email varchar(256) unique not null,contact varchar(15) unique not null,password varchar(256) not null,address varchar(50),active TINYINT not null, created_at datetime,updated_at datetime)";
+
+            String sql = "CREATE TABLE admins (id int PRIMARY KEY AUTO_INCREMENT,fname varchar(20),lname varchar(20),gender varchar(10) not null,username varchar(20) unique not null,email varchar(256) unique not null,contact varchar(15) unique not null,password varchar(256) not null,address varchar(50),active TINYINT not null, created_at timestamp DEFAULT CURRENT_TIMESTAMP,updated_at timestamp DEFAULT CURRENT_TIMESTAMP)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.executeUpdate();
             System.out.println("admins table created.");
@@ -32,10 +33,10 @@ public class CreateAdminTable {
         }
     }
 
-    public static void defaultData(){
+    public static void defaultData() {
         try {
             Connection con = ConnectDB.connect();
-            String sql = "INSERT INTO admins VALUES(null,'Aptech','Lalitpur','aptech','aptech@gmail.com','1234567','aptech123','Kumaripati, Lalitpur',1,null,null)";
+            String sql = "INSERT INTO admins VALUES(null,'Aptech','Lalitpur','m','aptech','aptech@gmail.com','1234567','aptech123','Kumaripati, Lalitpur',1,null,null)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.executeUpdate();
             System.out.println("default data generated.");

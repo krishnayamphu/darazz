@@ -4,6 +4,7 @@ public class Admin {
     private int id;
     private String firstname;
     private String lastname;
+    private String gender;
     private String username;
     private String email;
     private String contact;
@@ -14,12 +15,6 @@ public class Admin {
     private String updatedAt;
 
     public Admin() {
-    }
-
-    public Admin(int id, String username, String password) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
     }
 
     public int getId() {
@@ -44,6 +39,14 @@ public class Admin {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public String getUsername() {

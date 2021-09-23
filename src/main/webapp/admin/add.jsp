@@ -1,0 +1,115 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Add Admin User</title>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <div class="container">
+        <a class="navbar-brand" href="/darazz">DARAZZ</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/darazz">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="users">Admin Users</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/">${user}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container">
+    <div class="row justify-content-between py-3">
+        <div class="col"> <h5>Add User</h5></div>
+        <div class="col">
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="users"><i class="fa fa-eye"></i> All Users</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <form class="row g-3" action="admin-add" method="post">
+    <div class="col-12"> </div>
+        <div class="col-md-6">
+            <label class="form-label">Firstname</label>
+            <input type="text" class="form-control" name="fname">
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Lastname</label>
+            <input type="text" class="form-control" name="lname">
+        </div>
+        <div class="col-12">
+            <label class="form-label">Username</label>
+            <input type="text" class="form-control" name="username">
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control" name="password">
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Confirmed Password</label>
+            <input type="password" class="form-control" name="cpassword">
+        </div>
+            <div class="col-12">
+                ${err}
+            </div>
+        <div class="col-12">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" name="email">
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Contact</label>
+            <input type="text" class="form-control" name="contact">
+        </div>
+        <div class="col-md-6">
+           <div> <label class="form-label">Gender</label></div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" value="m">
+                <label class="form-check-label">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" value="f">
+                <label class="form-check-label">Female</label>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <label class="form-label">Address</label>
+            <input type="text" class="form-control" placeholder="City, State ">
+        </div>
+
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+    </form>
+
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

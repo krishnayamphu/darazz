@@ -6,12 +6,19 @@ import com.aptech.models.Admin;
 public class MainApp {
     public static void main(String[] args) {
         Admin admin=new Admin();
-        admin.setUsername("admin");
-        admin.setPassword("aptech123");
-        if(AdminDao.auth(admin)){
-            System.out.println("welcome aptech");
+        admin.setFirstname("Krishna");
+        admin.setLastname("Yamphu");
+        admin.setGender("m");
+        admin.setUsername("krishnayamphu");
+        admin.setEmail("krishnayamphu@gmail.com");
+        admin.setContact("1234567890");
+        admin.setPassword("krishna123");
+        admin.setAddress("Kumaripati, Lalitpur");
+        admin.setActive(1);
+        if(AdminDao.addUser(admin)){
+            System.out.println("data inserted");
         }else {
-            System.out.println("invalid");
+            System.out.println("error");
         }
     }
 }

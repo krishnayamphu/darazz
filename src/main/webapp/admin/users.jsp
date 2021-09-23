@@ -39,7 +39,17 @@
 
 
 <div class="container">
-    <h3>All Users</h3>
+    <div class="row justify-content-between py-3">
+        <div class="col"> <h5>All Users</h5></div>
+        <div class="col">
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="admin-add"><i class="fa fa-user-plus"></i> User</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <table class="table table-bordered ">
         <thead>
         <tr>
