@@ -1,6 +1,7 @@
 package com.aptech.config.autotables;
 
 import com.aptech.helpers.ConnectDB;
+import org.apache.commons.codec.digest.DigestUtils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -35,9 +36,11 @@ public class CreateAdminTable {
 
     public static void defaultData() {
         try {
+            String hexPass= DigestUtils.sha256Hex("aptech123");
             Connection con = ConnectDB.connect();
-            String sql = "INSERT INTO admins VALUES(null,'Aptech','Lalitpur','m','aptech','aptech@gmail.com','1234567','aptech123','Kumaripati, Lalitpur',1,null,null)";
+            String sql = "INSERT INTO admins VALUES(null,'Aptech','Lalitpur','m','aptech','aptech@gmail.com','1234567',?,'Kumaripati, Lalitpur',1,null,null)";
             PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1,hexPass);
             ps.executeUpdate();
             System.out.println("default data generated.");
         } catch (SQLException e) {

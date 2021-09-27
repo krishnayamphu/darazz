@@ -2,6 +2,7 @@ package com.aptech.controllers.admin;
 
 import com.aptech.dao.AdminDao;
 import com.aptech.models.Admin;
+import org.apache.commons.codec.digest.DigestUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,7 +20,24 @@ public class AdminAddController extends HttpServlet {
         String pass = request.getParameter("password");
         String cpass = request.getParameter("cpassword");
         if (pass.equals(cpass)) {
-            pw.println("ok");
+            Admin admin=new Admin();
+            admin.setFirstname(request.getParameter("fname"));
+            admin.setLastname(request.getParameter("lname"));
+            admin.setGender(request.getParameter("gender"));
+            admin.setUsername(request.getParameter("username"));
+            admin.setEmail(request.getParameter("email"));
+            admin.setContact(request.getParameter("contact"));
+            admin.setPassword(DigestUtils.sha256Hex(pass));
+            admin.setAddress(request.getParameter("address"));
+            admin.setActive(1);
+            if(AdminDao.addUser(admin)){
+                response.sendRedirect("users");
+                System.out.println("data inserted");
+            }else {
+                String msg = "<div class='alert alert-danger'>Error while adding new user</div>";
+                request.setAttribute("errUser", msg);
+                request.getRequestDispatcher("/admin/add.jsp").include(request, response);
+            }
         } else {
             String msg = "<div class='alert alert-danger'> password do not match</div>";
             request.setAttribute("err", msg);

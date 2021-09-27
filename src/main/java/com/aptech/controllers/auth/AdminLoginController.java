@@ -2,6 +2,7 @@ package com.aptech.controllers.auth;
 
 import com.aptech.dao.AdminDao;
 import com.aptech.models.Admin;
+import org.apache.commons.codec.digest.DigestUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,7 +17,7 @@ public class AdminLoginController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String msg="<div class='alert alert-danger'> Invalid username or password.</div>";
         String username=request.getParameter("username");
-        String password=request.getParameter("password");
+        String password= DigestUtils.sha256Hex(request.getParameter("password"));
         Admin admin=new Admin();
         admin.setUsername(username);
         admin.setPassword(password);
