@@ -1,6 +1,9 @@
 package com.aptech.config;
 
 import com.aptech.config.autotables.CreateAdminTable;
+import com.aptech.config.autotables.CreateCategoryTable;
+import com.aptech.config.autotables.CreateDiscountTable;
+import com.aptech.config.autotables.CreateInventoryTable;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
@@ -19,11 +22,18 @@ public class AppContextListener implements ServletContextListener {
         servletContext.setInitParameter("homeUrl", "http://localhost:8080/darazz");
         CreateAdminTable.createTable();
         CreateAdminTable.defaultData();
+
+        CreateCategoryTable.createTable();
+        CreateInventoryTable.createTable();
+        CreateDiscountTable.createTable();
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
         CreateAdminTable.dropTable();
+        CreateCategoryTable.dropTable();
+        CreateInventoryTable.dropTable();
+        CreateDiscountTable.dropTable();
     }
 
     public static String getURLWithContextPath(HttpServletRequest request) {
