@@ -24,16 +24,16 @@ public class AppContextListener implements ServletContextListener {
         CreateAdminTable.defaultData();
 
         CreateCategoryTable.createTable();
-        CreateInventoryTable.createTable();
-        CreateDiscountTable.createTable();
+//        CreateInventoryTable.createTable();
+//        CreateDiscountTable.createTable();
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-        CreateAdminTable.dropTable();
-        CreateCategoryTable.dropTable();
-        CreateInventoryTable.dropTable();
-        CreateDiscountTable.dropTable();
+//        CreateAdminTable.dropTable();
+//        CreateCategoryTable.dropTable();
+//        CreateInventoryTable.dropTable();
+//        CreateDiscountTable.dropTable();
     }
 
     public static String getURLWithContextPath(HttpServletRequest request) {

@@ -9,34 +9,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-success">
-    <div class="container">
-        <a class="navbar-brand" href="/darazz">DARAZZ</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-            <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="/darazz">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="users">Admin Users</a>
-                </li>
-            </ul>
-
-            <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/">${user}</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/">Logout</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
+<%@include file="nav.jsp"%>
 
 <div class="container">
     <div class="row justify-content-between py-3">
@@ -50,64 +23,69 @@
         </div>
     </div>
 
-
-    <form class="row g-3" action="admin-add" method="post">
-        ${errUser}
-    <div class="col-12"> </div>
-        <div class="col-md-6">
-            <label class="form-label">Firstname</label>
-            <input type="text" class="form-control" name="fname" required>
-        </div>
-        <div class="col-md-6">
-            <label class="form-label">Lastname</label>
-            <input type="text" class="form-control" name="lname" required>
-        </div>
-        <div class="col-12">
-            <label class="form-label">Username</label>
-            <input type="text" class="form-control" name="username" required>
-        </div>
-        <div class="col-md-6">
-            <label class="form-label">Password</label>
-            <input type="password" class="form-control" name="password" required>
-        </div>
-        <div class="col-md-6">
-            <label class="form-label">Confirmed Password</label>
-            <input type="password" class="form-control" name="cpassword" required>
-        </div>
+<div class="row">
+    <div class="col-3">
+        <%@include file="sidebar.jsp"%>
+    </div>
+    <div class="col-9">
+        <form class="row g-3" action="admin-add" method="post">
+            ${errUser}
+            <div class="col-12"> </div>
+            <div class="col-md-6">
+                <label class="form-label">Firstname</label>
+                <input type="text" class="form-control" name="fname" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Lastname</label>
+                <input type="text" class="form-control" name="lname" required>
+            </div>
+            <div class="col-12">
+                <label class="form-label">Username</label>
+                <input type="text" class="form-control" name="username" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control" name="password" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Confirmed Password</label>
+                <input type="password" class="form-control" name="cpassword" required>
+            </div>
             <div class="col-12">
                 ${err}
             </div>
-        <div class="col-12">
-            <label class="form-label">Email</label>
-            <input type="email" class="form-control" name="email" required>
-        </div>
-        <div class="col-md-6">
-            <label class="form-label">Contact</label>
-            <input type="text" class="form-control" name="contact" required>
-        </div>
-        <div class="col-md-6">
-           <div> <label class="form-label">Gender</label></div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="gender" value="m" checked>
-                <label class="form-check-label">Male</label>
+            <div class="col-12">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" name="email" required>
             </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="gender" value="f">
-                <label class="form-check-label">Female</label>
+            <div class="col-md-6">
+                <label class="form-label">Contact</label>
+                <input type="text" class="form-control" name="contact" required>
             </div>
-        </div>
+            <div class="col-md-6">
+                <div> <label class="form-label">Gender</label></div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" value="m" checked>
+                    <label class="form-check-label">Male</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" value="f">
+                    <label class="form-check-label">Female</label>
+                </div>
+            </div>
 
-        <div class="col-12">
-            <label class="form-label">Address</label>
-            <input type="text" class="form-control" name="address" placeholder="City, State " required>
-        </div>
+            <div class="col-12">
+                <label class="form-label">Address</label>
+                <input type="text" class="form-control" name="address" placeholder="City, State " required>
+            </div>
 
-        <div class="col-12">
-            <button type="submit" class="btn btn-primary">Register</button>
-        </div>
-    </form>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+        </form>
 
-
+    </div>
+</div>
 </div>
 
 

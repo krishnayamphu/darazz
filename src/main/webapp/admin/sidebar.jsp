@@ -28,10 +28,10 @@
             <div class="accordion-body">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="products">All Categories</a>
+                        <a class="nav-link" aria-current="page" href="category">All Categories</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="product-add">Add Category</a>
+                        <a class="nav-link" href="category-add">Add Category</a>
                     </li>
                 </ul>
             </div>
@@ -47,7 +47,7 @@
             <div class="accordion-body">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="products">View Inventory</a>
+                        <a class="nav-link" aria-current="page" href="inventory">View Inventory</a>
                     </li>
 
                 </ul>
@@ -62,13 +62,12 @@
         </h2>
         <div id="collapseDiscount" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
             <div class="accordion-body">
-
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="products">All Discounts</a>
+                        <a class="nav-link" aria-current="page" href="discounts">All Discounts</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="product-add">Add Discount</a>
+                        <a class="nav-link" href="discount-add">Add Discount</a>
                     </li>
                 </ul>
             </div>
@@ -82,6 +81,14 @@
         </h2>
         <div id="collapseUsers" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
             <div class="accordion-body">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="users">All Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="user-add">Add User</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
