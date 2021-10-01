@@ -10,7 +10,7 @@ public class CreateCategoryTable {
     public static void createTable() {
         try {
             Connection con = ConnectDB.connect();
-            String sql = "CREATE TABLE category (id int PRIMARY KEY AUTO_INCREMENT,name varchar(30),description text,created_at timestamp DEFAULT CURRENT_TIMESTAMP,updated_at timestamp DEFAULT CURRENT_TIMESTAMP)";
+            String sql = "CREATE TABLE category (id int PRIMARY KEY AUTO_INCREMENT,name varchar(30) unique not null,description text,created_at timestamp DEFAULT CURRENT_TIMESTAMP,updated_at timestamp DEFAULT CURRENT_TIMESTAMP)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.executeUpdate();
             System.out.println("category table created.");

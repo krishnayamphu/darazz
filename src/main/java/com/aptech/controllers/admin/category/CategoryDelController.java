@@ -1,6 +1,5 @@
 package com.aptech.controllers.admin.category;
 
-import com.aptech.dao.AdminDao;
 import com.aptech.dao.CategoryDao;
 
 import javax.servlet.ServletException;

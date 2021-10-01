@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Categories</title>
+    <title>Products</title>
 
 </head>
 <body>
@@ -15,11 +15,11 @@
 
 <div class="container">
     <div class="row justify-content-between py-3">
-        <div class="col"><h5>All Categories</h5></div>
+        <div class="col"><h5>All Products</h5></div>
         <div class="col">
             <ul class="nav justify-content-end">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="category-add"><i class="fa fa-book"></i> Add Category</a>
+                    <a class="nav-link active" aria-current="page" href="product-add"><i class="fa fa-book"></i> Add Product</a>
                 </li>
             </ul>
         </div>
@@ -41,41 +41,46 @@
                     <th>SN</th>
                     <th>Name</th>
                     <th>Description</th>
+                    <th>Regular Price</th>
+                    <th>Sales Price</th>
                     <th>Created Date</th>
                     <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="category" items="${categories}" varStatus="countStatus">
+                <c:forEach var="product" items="${products}" varStatus="i">
                     <tr>
-                        <th>${countStatus.count}</th>
-                        <td>${category.name}</td>
-                        <td>${category.description}</td>
-                        <td>${category.createdAt}</td>
+                        <th>${i.count}</th>
+                        <td>${product.name}</td>
+                        <td>${product.description}</td>
+                        <td>${product.regularPrice}</td>
+                        <td>${product.salesPrice}</td>
+
+                        <td>${product.createdAt}</td>
                         <td>
-                            <a class="btn btn-primary" href="category-edit?id=${category.id}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                            <a class="btn btn-primary" href="category-edit?id=${product.id}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#modal${category.id}">
+                                    data-bs-target="#modal${product.id}">
                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                             </button>
                         </td>
 
 
                         <!-- Modal -->
-                        <div class="modal fade" id="modal${category.id}" tabindex="-1" aria-labelledby="modal${category.id}"
+                        <div class="modal fade" id="modal${product.id}" tabindex="-1" aria-labelledby="modal${product.id}"
                              aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                    <form action="category-del" method="post">
-                                        <input type="hidden" value="${category.id}" name="id">
+                                    <form action="product-del" method="post">
+                                        <input type="hidden" value="${product.id}" name="id">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="modal${category.id}">Deleting Item</h5>
+                                            <h5 class="modal-title" id="modal${product.id}">Deleting Item</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <p class="modal-title" id="modal${category.id}">Are you sure delete this Item?</p>
+                                            <p class="modal-title" id="modal${product.id}">Are you sure delete this Item?</p>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel

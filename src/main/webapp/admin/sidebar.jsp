@@ -1,11 +1,11 @@
 <div class="accordion" id="accordionExample">
     <div class="accordion-item">
         <h2 class="accordion-header" id="products">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProducts" aria-expanded="true" aria-controls="collapseOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProducts" aria-expanded="false" aria-controls="collapseOne">
                 Products
             </button>
         </h2>
-        <div id="collapseProducts" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+        <div id="collapseProducts" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
             <div class="accordion-body">
                 <ul class="nav flex-column">
                     <li class="nav-item">
