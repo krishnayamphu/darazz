@@ -72,6 +72,23 @@ public class ProductDao {
         return products;
     }
 
+    public static List<String> getCategoryByProductId(int id) {
+        List<String> categories = new ArrayList<>();
+        try {
+            Connection con = ConnectDB.connect();
+            String sql = "SELECT category.name FROM category LEFT JOIN products ON category.id=products.category_id WHERE products.id=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+               categories.add(rs.getString("name"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return categories;
+    }
+
     public static boolean addProduct(Product product) {
         boolean status = false;
         try {

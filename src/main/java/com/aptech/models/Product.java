@@ -1,5 +1,14 @@
 package com.aptech.models;
 
+import com.aptech.helpers.ConnectDB;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Product {
     private int id;
     private String name;
@@ -111,5 +120,21 @@ public class Product {
 
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
+    }
+    public List<String> getCategories(int id) {
+        List<String> categories = new ArrayList<>();
+        try {
+            Connection con = ConnectDB.connect();
+            String sql = "SELECT category.name FROM category LEFT JOIN products ON category.id=products.category_id WHERE products.id=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                categories.add(rs.getString("name"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return categories;
     }
 }

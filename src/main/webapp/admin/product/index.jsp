@@ -1,3 +1,5 @@
+<%@ page import="java.util.List" %>
+<%@ page import="com.aptech.dao.ProductDao" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -43,6 +45,7 @@
                     <th>Description</th>
                     <th>Regular Price</th>
                     <th>Sales Price</th>
+                    <th>Category</th>
                     <th>Created Date</th>
                     <th>Action</th>
                 </tr>
@@ -55,7 +58,11 @@
                         <td>${product.description}</td>
                         <td>${product.regularPrice}</td>
                         <td>${product.salesPrice}</td>
-
+                        <td>
+                            <c:forEach var="category" items="${product.getCategories(product.id)}">
+                                ${category}
+                            </c:forEach>
+                        </td>
                         <td>${product.createdAt}</td>
                         <td>
                             <a class="btn btn-primary" href="category-edit?id=${product.id}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
