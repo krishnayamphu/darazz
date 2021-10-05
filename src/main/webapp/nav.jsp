@@ -13,27 +13,37 @@
             </ul>
             <form class="d-flex mb-0">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-primary" type="submit">Search</button>
+                <button class="btn btn-primary" type="submit">Search</button>
             </form>
             <ul class="navbar-nav mb-2 mb-lg-0">
                 <c:choose>
                     <c:when test="${sessionScope.user==null}">
                         <li class="nav-item">
-                            <a class="nav-link" href="signin">Sign In</a>
+                            <a class="nav-link" href="signin">Sign in</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="signup">Sign Up</a>
+                            <a class="nav-link" href="signup">Sign up</a>
                         </li>
                     </c:when>
                     <c:otherwise>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Account
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                                    ${CurrentUser.getFirstname()} ${CurrentUser.getLastname()}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">Profile</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                                <li><a class="dropdown-item" href="#">My Orders</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    <form id="usrform" action="signout" method="post">
+                                        <a class="dropdown-item" href="javascript:0"
+                                           onclick="document.getElementById('usrform').submit();">Logout</a>
+                                    </form>
+                                </li>
+
                             </ul>
                         </li>
                     </c:otherwise>

@@ -11,7 +11,6 @@ public class CreateUserTable {
     public static void createTable() {
         try {
             Connection con = ConnectDB.connect();
-
             String sql = "CREATE TABLE users (id int PRIMARY KEY AUTO_INCREMENT,fname varchar(20),lname varchar(20),gender varchar(10) not null,username varchar(20) unique not null,email varchar(256) unique not null,contact varchar(15) unique not null,password varchar(256) not null,address varchar(50),active TINYINT not null, created_at timestamp DEFAULT CURRENT_TIMESTAMP,updated_at timestamp DEFAULT CURRENT_TIMESTAMP)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.executeUpdate();
@@ -26,8 +25,9 @@ public class CreateUserTable {
             Connection con = ConnectDB.connect();
             String sql = "DROP TABLE users";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.executeUpdate();
-            System.out.println("dropped users table.");
+            if(ps.executeUpdate()==1){
+                System.out.println("dropped users table.");
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

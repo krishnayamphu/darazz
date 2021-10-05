@@ -56,6 +56,33 @@ public class UserDao {
         return user;
     }
 
+    public static User getUserByUsername(String username){
+        User user=null;
+        try {
+            Connection con=ConnectDB.connect();
+            String sql="SELECT * FROM users WHERE username=? AND active=1";
+            PreparedStatement ps=con.prepareStatement(sql);
+            ps.setString(1, username);
+            ResultSet rs=ps.executeQuery();
+            while (rs.next()){
+                user=new User();
+                user.setId(rs.getInt("id"));
+                user.setFirstname(rs.getString("fname"));
+                user.setLastname(rs.getString("lname"));
+                user.setGender(rs.getString("gender"));
+                user.setUsername(rs.getString("username"));
+                user.setAddress(rs.getString("address"));
+                user.setEmail(rs.getString("email"));
+                user.setContact(rs.getString("contact"));
+                user.setCreatedAt(rs.getString("created_at"));
+                user.setUpdatedAt(rs.getString("updated_at"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return user;
+    }
+
     public static List<User> getAllUsers(){
         List<User> users=new ArrayList<>();
         try {
