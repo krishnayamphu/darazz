@@ -17,18 +17,23 @@ public class AppContextListener implements ServletContextListener {
         ServletContext servletContext = sce.getServletContext();
 
         servletContext.setInitParameter("homeUrl", "http://localhost:8080/darazz");
-//        CreateAdminTable.createTable();
-//        CreateAdminTable.defaultData();
-//
-        CreateCategoryTable.createTable();
-        CreateInventoryTable.createTable();
-        CreateDiscountTable.createTable();
-        CreateProductTable.createTable();
+        CreateAdminTable.createTable();
+        CreateAdminTable.defaultData();
+        CreateUserTable.createTable();
+        CreateUserTable.defaultData();
+
+//        CreateCategoryTable.createTable();
+//        CreateInventoryTable.createTable();
+//        CreateDiscountTable.createTable();
+//        CreateProductTable.createTable();
+
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-//        CreateAdminTable.dropTable();
+        CreateAdminTable.dropTable();
+        CreateUserTable.dropTable();
+
 //        CreateProductTable.dropTable();
 //        CreateCategoryTable.dropTable();
 //        CreateInventoryTable.dropTable();
