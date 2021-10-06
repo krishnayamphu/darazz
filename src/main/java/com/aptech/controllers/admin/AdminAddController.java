@@ -36,12 +36,12 @@ public class AdminAddController extends HttpServlet {
             }else {
                 String msg = "<div class='alert alert-danger'>Error while adding new user</div>";
                 request.setAttribute("errUser", msg);
-                request.getRequestDispatcher("/admin/add.jsp").include(request, response);
+                request.getRequestDispatcher("/admin/signup.jsp").include(request, response);
             }
         } else {
             String msg = "<div class='alert alert-danger'> password do not match</div>";
             request.setAttribute("err", msg);
-            request.getRequestDispatcher("/admin/add.jsp").include(request, response);
+            request.getRequestDispatcher("/admin/signup.jsp").include(request, response);
         }
 
     }
@@ -49,6 +49,6 @@ public class AdminAddController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        request.getRequestDispatcher("/admin/add.jsp").forward(request, response);
+        request.getRequestDispatcher("/admin/signup.jsp").forward(request, response);
     }
 }

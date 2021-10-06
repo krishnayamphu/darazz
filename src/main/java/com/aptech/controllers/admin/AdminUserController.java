@@ -22,6 +22,6 @@ public class AdminUserController extends HttpServlet {
         String url=context.getInitParameter("homeUrl");
         PrintWriter pw=response.getWriter();
 //        pw.println(url);
-        request.getRequestDispatcher("/admin/users.jsp").forward(request,response);
+        request.getRequestDispatcher("/admin/profile.jsp").forward(request,response);
     }
 }

@@ -36,13 +36,13 @@ public class ProductAddController extends HttpServlet {
         }else{
             String msg = "<div class='alert alert-danger'>Error while adding new product</div>";
             request.setAttribute("err", msg);
-            request.getRequestDispatcher("product/add.jsp").include(request, response);
+            request.getRequestDispatcher("product/signup.jsp").include(request, response);
         }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Category> categories = CategoryDao.getAllCategories();
         request.setAttribute("categories",categories);
-        request.getRequestDispatcher("product/add.jsp").forward(request,response);
+        request.getRequestDispatcher("product/signup.jsp").forward(request,response);
     }
 }

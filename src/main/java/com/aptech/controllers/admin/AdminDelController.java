@@ -18,7 +18,7 @@ public class AdminDelController extends HttpServlet {
         }else{
             String msg = "<div class='alert alert-danger'> Error occur while deleting user</div>";
             request.setAttribute("err", msg);
-            request.getRequestDispatcher("/admin/users.jsp").include(request,response);
+            request.getRequestDispatcher("/admin/profile.jsp").include(request,response);
         }
     }
 }

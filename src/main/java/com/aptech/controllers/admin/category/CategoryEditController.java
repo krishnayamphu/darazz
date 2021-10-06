@@ -26,7 +26,7 @@ public class CategoryEditController extends HttpServlet {
         } else {
             String msg = "<div class='alert alert-danger'>Error while updating category</div>";
             request.setAttribute("err", msg);
-            request.getRequestDispatcher("category/add.jsp").include(request, response);
+            request.getRequestDispatcher("category/signup.jsp").include(request, response);
         }
     }
 

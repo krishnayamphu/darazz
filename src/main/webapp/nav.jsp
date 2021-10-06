@@ -32,15 +32,15 @@
                                     ${CurrentUser.getFirstname()} ${CurrentUser.getLastname()}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Profile</a></li>
-                                <li><a class="dropdown-item" href="#">My Orders</a></li>
+                                <li><a class="dropdown-item" href="user/profile">Profile</a></li>
+                                <li><a class="dropdown-item" href="user/order">My Orders</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li>
-                                    <form id="usrform" action="signout" method="post">
+                                    <form id="usrform" action="/darazz/signout" method="post">
                                         <a class="dropdown-item" href="javascript:0"
-                                           onclick="document.getElementById('usrform').submit();">Logout</a>
+                                           onclick="document.getElementById('usrform').submit();">Sign out</a>
                                     </form>
                                 </li>
 

@@ -22,11 +22,11 @@ public class CategoryAddController extends HttpServlet {
         }else{
             String msg = "<div class='alert alert-danger'>Error while adding new category</div>";
             request.setAttribute("err", msg);
-            request.getRequestDispatcher("category/add.jsp").include(request, response);
+            request.getRequestDispatcher("category/signup.jsp").include(request, response);
         }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("category/add.jsp").forward(request,response);
+        request.getRequestDispatcher("category/signup.jsp").forward(request,response);
     }
 }
